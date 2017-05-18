@@ -35,18 +35,7 @@ Easiest way to add scroll parallax effect on the component.
 - `left` _(String)_ - component left position, default: `inherit`
 - `right` _(String)_ - component top position, default: `inherit`
 
-## Development
+## Installation
 ```
-$ npm install
-```
-
-## Run app
-```
-$ npm start
-```
-And open in browser: [http://localhost:4000](http://localhost:4000)
-
-## Build
-```
-$ npm run build
+$ yarn add react-parallax-component@p0lip/react-parallax-component
 ```

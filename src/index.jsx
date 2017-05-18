@@ -1,36 +1,14 @@
-import React, { Component } from 'react';
-import throttle from 'lodash.throttle';
+import React from 'react';
+import PropTypes from 'prop-types';
+import throttle from 'lodash-es/throttle';
+import styles from './styles.css';
 
-// Component styles
-import styles from './styles';
-
-export default class ParallaxComponent extends Component {
-
-  static propTypes = {
-    children: React.PropTypes.object,
-    speed: React.PropTypes.number,
-
-    // Style
-    width: React.PropTypes.string,
-    height: React.PropTypes.string,
-    top: React.PropTypes.string,
-    left: React.PropTypes.number,
-    right: React.PropTypes.string,
-  }
-
-  static defaultProps = {
-    width: 'auto',
-    height: 'auto',
-    top: 'inherit',
-    left: 'inherit',
-    right: 'inherit',
-    speed: -0.03,
-  }
-
+export default class ParallaxComponent extends React.Component {
   constructor(props) {
     super(props);
 
     this.handleScroll = throttle(this.handleScroll.bind(this), 10);
+    this.parallaxElement = null;
   }
 
   componentDidMount() {
@@ -42,7 +20,7 @@ export default class ParallaxComponent extends Component {
   }
 
   getTop() {
-    const { top = 0 } = this.props;
+    const { top } = this.props;
 
     return top.indexOf('%') > -1
       ? window.innerHeight * (top.replace('%', '') / 100)
@@ -59,15 +37,15 @@ export default class ParallaxComponent extends Component {
     const newTop = (top - (pageTop * speed));
 
     // Set new top position
-    this.refs.parallaxElement.style.top = `${newTop}px`;
+    this.parallaxElement.style.top = `${newTop}px`;
   }
 
   render() {
     return (
       <div
         className={styles}
-        ref="parallaxElement"
-        style={{...this.props}}
+        ref={ref => { this.parallaxElement = ref; }}
+        style={this.props}
       >
         <div>
           {this.props.children}
@@ -76,3 +54,25 @@ export default class ParallaxComponent extends Component {
     );
   }
 }
+
+ParallaxComponent.propTypes = {
+  children: PropTypes.element,
+  speed: PropTypes.number,
+
+  // Style
+  width: PropTypes.string,
+  height: PropTypes.string,
+  top: PropTypes.string,
+  left: PropTypes.number,
+  right: PropTypes.string,
+};
+
+ParallaxComponent.defaultProps = {
+  children: null,
+  width: 'auto',
+  height: 'auto',
+  top: 0,
+  left: 'inherit',
+  right: 'inherit',
+  speed: -0.03,
+};
