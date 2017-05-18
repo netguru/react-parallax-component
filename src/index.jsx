@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import throttle from 'lodash-es/throttle';
+import throttle from 'lodash/throttle';
 import styles from './styles.css';
 
 export default class ParallaxComponent extends React.Component {

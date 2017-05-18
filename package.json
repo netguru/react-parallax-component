@@ -25,6 +25,7 @@
   ],
   "license": "MIT",
   "peerDependencies": {
+    "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
     "react": "^15.5.4"
   },
@@ -41,9 +42,9 @@
     "babel-preset-es2015-rollup": "^3.0.0",
     "babel-preset-react": "^6.24.1",
     "cross-env": "^5.0.0",
-    "lodash-es": "^4.17.4",
     "rollup": "^0.41.6",
     "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-jsx": "^1.0.3",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-postcss": "^0.5.0"
