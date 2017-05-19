@@ -1,12 +1,11 @@
 {
   "name": "react-parallax-component",
   "version": "1.0.6",
-  "main": "dist/index.es5.js",
-  "module": "dist/index.next.js",
+  "main": "dist/index.js",
   "description": "Easiest way to add scroll parallax effect on the component",
   "scripts": {
     "lint": "eslint src",
-    "install": "rollup -c && cross-env TYPE=next rollup -c"
+    "install": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -43,7 +42,6 @@
     "babel-preset-react": "^6.24.1",
     "cross-env": "^5.0.0",
     "rollup": "^0.41.6",
-    "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-jsx": "^1.0.3",
     "rollup-plugin-node-resolve": "^3.0.0",

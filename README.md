@@ -39,3 +39,5 @@ Easiest way to add scroll parallax effect on the component.
 ```
 $ yarn add react-parallax-component@p0lip/react-parallax-component
 ```
+
+There is only ES2015 bundle available in package, so make sure you transpile the code if you want to support older environment.
