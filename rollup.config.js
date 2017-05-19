@@ -2,9 +2,15 @@ import postcss from 'rollup-plugin-postcss';
 import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
 import jsx from 'rollup-plugin-jsx';
+import json from 'rollup-plugin-json';
+import postcssNesting from 'postcss-nesting';
+import postcssModules from 'postcss-modules';
 
 const plugins = [
-  postcss(),
+  json(),
+  postcss({
+    plugins: [postcssModules(), postcssNesting()],
+  }),
   resolve({ jsnext: true }),
   commonjs(),
   jsx({ factory: 'React.createElement' }),

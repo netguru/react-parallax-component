@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import throttle from 'lodash/throttle';
-import styles from './styles.css';
+import './styles.css';
+import styles from './styles.css.json';
 
 export default class ParallaxComponent extends React.Component {
   constructor(props) {
@@ -43,9 +44,9 @@ export default class ParallaxComponent extends React.Component {
   render() {
     return (
       <div
-        className={styles}
-        ref={ref => { this.parallaxElement = ref; }}
-        style={this.props}
+        className={styles.container}
+        ref={(ref) => { this.parallaxElement = ref; }}
+        style={Object.assign({}, this.props)}
       >
         <div>
           {this.props.children}

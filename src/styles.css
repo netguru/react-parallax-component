@@ -1,7 +1,7 @@
-:local(.styles) {
+:local(.container) {
   position: fixed;
 
-  img {
+  & img {
     width: 100%;
   }
 }
